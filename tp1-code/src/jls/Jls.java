@@ -22,7 +22,7 @@ public class Jls {
 		};
 		
 		try {
-	        BufferedWriter writer = new BufferedWriter(new FileWriter("./output/output.csv"));
+	        BufferedWriter writer = new BufferedWriter(new FileWriter("./output/JLSoutput.csv"));
 	        for(String fs : this.fileList) {
 				writer.write(fs);
 				writer.newLine();
