@@ -1,24 +1,34 @@
 package lcsec;
+
 import java.io.*;
 import java.util.ArrayList;
 
 public class Lcsec {
 	
-	//tableau qui contient à chaque index le nombre de couplage d'une classe avec une autre 
-	private int[] coupleCounter;
-	//tableau qui contient les noms de tous les fichiers du dossier
-	private String[] fileList;
-	private String filePath;
+	public class Class{
+		
+		private String name;
+		private int couplage;
+		public Class(String name){
+			this.name = name;
+			this.couplage = 0;
+		}
+		
+		public String getName() {
+			return this.name;
+		}
+	}
 	
-	//csv info
+	private String filePath;
 	private String csvPath;
 	private ArrayList<String> csvContent;
+	private ArrayList<Class> classlist;
 	
 	public Lcsec(String csvPath, String filePath) {
 		this.csvPath = csvPath;
 		this.filePath = filePath;
-		this.fileList = this.csvToTable();
-		this.coupleCounter = new int[fileList.length];
+		this.classlist = this.csvToList();
+		
 		
 	}
 	
@@ -33,7 +43,6 @@ public class Lcsec {
 			
 			while((line = br.readLine()) != null) {
 				csvList.add(line);
-				System.out.println(line);
 			}
 			this.csvContent = csvList;
 			br.close();
@@ -46,20 +55,19 @@ public class Lcsec {
 	}
 	
 	// lit le csv et récupère seulement la partie du nom - son extension 
-	public String[] csvToTable(){
+	public ArrayList<Class> csvToList(){
 		
 		ArrayList<String> content = this.readCsv();
-		int tableLength = content.size();
+		ArrayList<Class> csvList = new ArrayList<Class>();
 		
-		String csvTable[] = new String[tableLength];
-		for(int i = 0; i < tableLength; i++) {
+		for(int i = 0; i < content.size(); i++) {
 			String line [] = content.get(i).split(","); 
 			//on retire l'extension du fichier et on ajoute les noms dans le tableau
-			csvTable[i] = line[2].substring(0, line[2].lastIndexOf("."));;
-			System.out.println(csvTable[i]);
+			csvList.add(new Class(line[2].substring(0, line[2].lastIndexOf("."))));
+			System.out.println(csvList.get(i).getName());
 		}
 		
-		return csvTable;
+		return csvList;
 	
 	}
 	
@@ -74,3 +82,4 @@ public class Lcsec {
         }
     }
 }
+
