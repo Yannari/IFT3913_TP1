@@ -2,6 +2,8 @@ package egon;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
+
 import nvloc.nvloc;
 
 import nvloc.nvloc;
@@ -57,6 +59,7 @@ public class egon {
 
     private void completeCSVFile(){
         Jls test0 = new Jls(filePath);
+        Lcsec test1 = new Lcsec("./output/JLSoutput.csv", filePath);
         for(int i = 0; i < csvContent.size(); i++) {
 			ArrayList<String> contenu = csvContent.get(i);
 			String path = contenu.get(0);
@@ -67,6 +70,47 @@ public class egon {
 		}
  
     }
-    public ArrayList<String> suggestSuspectClass(Arra)
+    public ArrayList<String> suggestSuspectClass(Integer seuil)
+    {
+        Integer[][] csecmetric = new Integer [csvContent.size()][];
+        Integer[][] nvlocmetric = new Integer [csvContent.size()][];
+        Integer[] csecScores = new Integer [csvContent.size()];
+        Integer[] nvlocScores = new Integer [csvContent.size()];
+
+        for(int i = 0; i<csvContent.size();i++)
+        {
+            
+            csecmetric[i][0] =  Integer.parseInt( csvContent.get(i).get(3) ) ;
+            csecmetric[i][1] =  i ;
+            nvlocmetric[i][0] =  Integer.parseInt( csvContent.get(i).get(4) ) ;
+            nvlocmetric[i][1] =  i ;
+        }
+        csecScores=findBestScore(csecmetric, seuil);
+        nvlocScores=findBestScore(nvlocmetric, seuil);
+    }
+
+    public Integer[] findBestScore(Integer[][] score, Integer seuil){
+
+        Integer[] is = new Integer [csvContent.size()];
+        for(int i = 0; i<csvContent.size();i++)
+        {
+            Arrays.sort(score[i],Collections.reverseOrder());
+        }
+        Integer avSeuil = Math.round(((seuil / 100) * score.length));
+       
+
+        for(int i = 0; i<avSeuil;i++)
+        {
+            is[i]=score[i][1];
+        }
+
+
+        return is;
+
+    }
+    
+    
+
+
 
 }
