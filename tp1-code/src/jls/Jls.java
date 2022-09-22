@@ -48,7 +48,7 @@ public class Jls {
                 
             }
         }
-    }
+    } 
 	
 	//convertir un chemin en notation package 
 	private String pathToPackage(String path) {
