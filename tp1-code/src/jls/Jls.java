@@ -12,9 +12,10 @@ public class Jls {
 	public Jls(String path) {
 		this.fileList = new ArrayList<>();
 		this.path = path;
+		
 	}
 	//génère le fichier csv dans le dossier "output"
-	public void makeCsv() {
+	public void makeCsv(String path) {
 		File pathFile = new File(this.path);
 		getall(pathFile);
 		for(String fs : this.fileList) {
@@ -22,7 +23,7 @@ public class Jls {
 		};
 		
 		try {
-	        BufferedWriter writer = new BufferedWriter(new FileWriter("./output/JLSoutput.csv"));
+	        BufferedWriter writer = new BufferedWriter(new FileWriter(path));
 	        for(String fs : this.fileList) {
 				writer.write(fs);
 				writer.newLine();
@@ -38,13 +39,15 @@ public class Jls {
 	//ajoute chaque fichier .java dans un arrayList
 	
 	private void getall(File f){
+		//System.out.println(f);
 		File[] files = f.listFiles();
         for (File fs: files) {
         	if(fs.isDirectory()==true)
                 getall(fs);
             if(fs.getName().toLowerCase().endsWith(".java")) {
             	//génère une ligne complète pour un fichier
-            	this.fileList.add(fs +", "+ this.pathToPackage(fs.getPath())+ ", "+ fs.getName());
+				
+            	this.fileList.add(fs +", "+ this.pathToPackage(fs.getPath())+ ", "+ fs.getName().replace(".java", ""));
                 
             }
         }
@@ -52,15 +55,19 @@ public class Jls {
 	
 	//convertir un chemin en notation package 
 	private String pathToPackage(String path) {
+		path= path.replace("\\", "/");
 		String[] fpath = path.split("/");
+		
 		String str = "";
 		for(int i = 1;i<fpath.length - 1; i++) {
+			
 			if(i == fpath.length - 2) {
 			str+= fpath[i];
 			}
 			else {
 				str+= fpath[i]+".";
 			}
+			
 		}
 		
 		return str ;
