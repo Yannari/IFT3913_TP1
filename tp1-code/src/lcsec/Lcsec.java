@@ -20,10 +20,11 @@ public class lcsec {
         
         String[] result = readCSV();
         
-
+        
 		try {
 	        BufferedWriter writer = new BufferedWriter(new FileWriter(this.csvPath));
 	        for(String fs : result) {
+                                            
 				writer.write(fs);
 				writer.newLine();
 			};
@@ -92,6 +93,7 @@ public class lcsec {
     }
     public String[] csecScores(String[] csvString, String[] files , String[] paths)
     {
+        
         Integer csecScores[] = new Integer [csvString.length];
         Arrays.fill(csecScores, 0);
 
@@ -111,7 +113,10 @@ public class lcsec {
             }
             
             csvString[i]=csvString[i]+","+" "+Integer.toString(csecScores[i]);
+            
+            //System.out.println(i+"<"+paths.length+" :"+ "fs: "+csvString[i]); 
         }
+        
         return csvString;
     }
     public boolean Checkcouplage(String pathBase,String strClass) 
@@ -132,7 +137,7 @@ public class lcsec {
                     
                     
                     String[] lines= line.split(" ");
-
+                    
                     if(lines.length>1)
                     {
                         if(lines[0].equals("/")==false | lines[1].equals("/")==false )
@@ -140,6 +145,7 @@ public class lcsec {
                             
                             if(line.contains(strClass))
                             {
+                                
                                 return true;
                             }
                         } 

@@ -64,6 +64,7 @@ public class egon {
                 }
                
             };
+            //System.out.println("CSV is successfully written in the directory");
             writer.close();
         }
         catch(Exception e) {

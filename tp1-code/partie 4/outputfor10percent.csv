@@ -1,0 +1,8 @@
+.\jfreechart\src\main\java\module-info.java, jfreechart.src.main.java, module-info, 0, 43
+.\jfreechart\src\main\java\org\jfree\chart\annotations\AbstractAnnotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, AbstractAnnotation, 2, 198
+.\jfreechart\src\main\java\org\jfree\chart\annotations\AbstractXYAnnotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, AbstractXYAnnotation, 2, 186
+.\jfreechart\src\main\java\org\jfree\chart\annotations\CategoryTextAnnotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, CategoryTextAnnotation, 2, 246
+.\jfreechart\src\main\java\org\jfree\chart\annotations\CategoryAnnotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, CategoryAnnotation, 0, 60
+.\jfreechart\src\main\java\org\jfree\chart\annotations\Annotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, Annotation, 1, 57
+.\jfreechart\src\main\java\org\jfree\chart\annotations\CategoryLineAnnotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, CategoryLineAnnotation, 2, 390
+.\jfreechart\src\main\java\org\jfree\chart\annotations\CategoryPointerAnnotation.java, jfreechart.src.main.java.org.jfree.chart.annotations, CategoryPointerAnnotation, 2, 480
