@@ -77,8 +77,9 @@ public class main {
             System.out.println("Enter the threshold a value between 1 and 99");
             String threshold=sc.nextLine();
             int seuil=Integer.parseInt(threshold);
-            eg1.executeEgon(seuil);
             System.out.println("Those suspected class are: \n");
+            eg1.executeEgon(seuil);
+            
             
             menu();
 
