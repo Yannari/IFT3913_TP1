@@ -6,8 +6,6 @@ import java.util.Collections;
 import java.util.List;
 
 import nvloc.nvloc;
-
-import nvloc.nvloc;
 import jls.*;
 import lcsec.*;
 
@@ -64,7 +62,7 @@ public class egon {
                 }
                
             };
-            //System.out.println("CSV is successfully written in the directory");
+            
             writer.close();
         }
         catch(Exception e) {
@@ -166,7 +164,7 @@ public class egon {
 
         List<Integer> intersectionList= intersection(list1, list2);
         
-        System.out.println(intersectionList);
+        
 
         return intersectionList;
     }
