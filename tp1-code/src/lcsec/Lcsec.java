@@ -14,7 +14,7 @@ public class lcsec {
         this.csvPath = csvPath;
 	    this.folderPath = folderPath;
     }
-
+    //génère le fichier csv dans le dossier entre par l'utilisateur
     public void makeCsv()
     {
         
@@ -34,7 +34,7 @@ public class lcsec {
 			System.out.println(e);
 		}
     }
-
+    //lit le fichier csv entre en parametre lors de l'initialisation de la classe
 
     public String[] readCSV()
     {   
@@ -91,6 +91,14 @@ public class lcsec {
         
 		return csecScores(csvString, f, p);
     }
+    /**
+     * genere le score de couplage de chaque classe contenu dans les fichiers
+     * java d'un dossier entre
+     * @param csvString
+     * @param files
+     * @param paths
+     * @return
+     */
     public String[] csecScores(String[] csvString, String[] files , String[] paths)
     {
         
@@ -114,11 +122,18 @@ public class lcsec {
             
             csvString[i]=csvString[i]+","+" "+Integer.toString(csecScores[i]);
             
-            //System.out.println(i+"<"+paths.length+" :"+ "fs: "+csvString[i]); 
+            
         }
         
         return csvString;
     }
+    /**
+     * verifie si une classe d'un fichier est comprise dans une autre classe 
+     * d'un autre fichier distinct
+     * @param pathBase
+     * @param strClass
+     * @return true si la classe est trouve dans un fichier java false sinon
+     */
     public boolean Checkcouplage(String pathBase,String strClass) 
     {
         String path= pathBase;
@@ -158,7 +173,7 @@ public class lcsec {
             
 		}
 		catch (IOException e) {
-            // TODO Auto-generated catch block
+            
             e.printStackTrace();
         }
 

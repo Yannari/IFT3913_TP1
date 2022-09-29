@@ -21,7 +21,10 @@ public class egon {
         this.csvPath = csvPath;
 		this.filePath = filePath;
     }
-
+    /**
+     * Genere le fichier csv en y ajoutant les colonnes du nvloc
+     * @param seuil
+     */
     public void executeEgon(int seuil)
     {
         String writeCSV="";
@@ -116,6 +119,10 @@ public class egon {
         return Line;
     }
 
+    /**
+     * Ajoute le contenu de nvloc correspondant a chaque fichier au csv 
+     * suivant la ligne qui lui correspond
+     */
     private void completeCSVFile(){
         Jls test0 = new Jls(filePath);
         lcsec test1 = new lcsec("C:/Users/yanna/OneDrive/Documents/GitHub/IFT3913_TP1/tp1-code/output.csv", filePath);
@@ -131,6 +138,11 @@ public class egon {
 		}
  
     }
+    /**
+     * permet la creation de la liste contenant les classes divines de notre dossier
+     * @param seuil
+     * @return
+     */
     public List<Integer> suggestSuspectClass(Integer seuil)
     {
         Integer[][] csecmetric = new Integer [csvContent.size()][csvContent.size()];
@@ -168,6 +180,13 @@ public class egon {
 
         return intersectionList;
     }
+    /**
+     * trouve la classe ayant le plus fort taux de couplage et le 
+     * nombre de ligne le plus elevee en fonction d'un seuil donne
+     * @param score
+     * @param seuil
+     * @return
+     */
 
     public Integer[] findBestScore(Integer[][] score, Integer seuil){
 
@@ -196,6 +215,13 @@ public class egon {
         return is;
 
     }
+    /**
+     * retourne l'intersection de deux listes
+     * @param <T>
+     * @param list1
+     * @param list2
+     * @return
+     */
 
     public <T> List<T> intersection(List<T> list1, List<T> list2) {
         List<T> list = new ArrayList<T>();

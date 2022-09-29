@@ -12,6 +12,10 @@ import egon.egon;
 public class main {
     	
     public static Scanner sc = new Scanner(System.in);
+    /**
+     * recupere le choix du User
+     * @return choice
+     */
     public static String makeChoice() 
     {
             
@@ -24,6 +28,9 @@ public class main {
             
             
     }
+    /**
+     * Menu principal du programme
+     */
     public static void menu()
     {
         String choice = makeChoice();
@@ -35,8 +42,9 @@ public class main {
            
             System.out.println("Choose the path to the folder which contains java files like this example: ./jfreechart/src/main/java ");
             String  path = sc.nextLine();
-            System.out.println("Choose the path to the folder we will be the container of the csv and the csv file name: ./jfreechart/src/main/java/output.csv ");
+            System.out.println("Choose the path to the folder we will be the container of the csv: ./jfreechart/src/main/java");
             String  path2 = sc.nextLine();
+            path2=path2+"/output.csv ";
             Jls jl1=new Jls(path);
             jl1.makeCsv(path2);
             System.out.println("The csv has been written in the folder "+path2);
@@ -77,8 +85,9 @@ public class main {
             System.out.println("Enter the threshold a value between 1 and 99");
             String threshold=sc.nextLine();
             int seuil=Integer.parseInt(threshold);
+            System.out.println("The suspected class are: \n");
             eg1.executeEgon(seuil);
-            System.out.println("Those suspected class are: \n");
+            
             
             menu();
 
@@ -95,7 +104,11 @@ public class main {
 
         }
     }
-
+    /**
+     * Execution
+     * @param args
+     * @throws IOException
+     */
     public static void main(String[] args) throws IOException {
 
         
@@ -105,31 +118,6 @@ public class main {
        
         
 
-        //Jls jl1=new Jls("./jfreechart/src/main/java");
-        //jl1.makeCsv("./tp1-code/outputfor1percent.csv");
-
-        // nJls jl2=new Jls("./jfreechart/src/main/java");
-        //jl2.makeCsv("./tp1-code/outputfor5percent.csv");
-
-        //Jls jl3=new Jls("./jfreechart/src/main/java");
-        //jl3.makeCsv("./tp1-code/outputfor10percent.csv");
-
-        //Test 
-        //lcsec lc1=new lcsec ("./tp1-code/outputfor1percent.csv","./jfreechart/src/main/java");
-        //lc1.makeCsv();
-
-        //lcsec lc2=new lcsec ("./tp1-code/outputfor5percent.csv","./jfreechart/src/main/java");
-        //lc2.makeCsv();
-
-        //lcsec lc3=new lcsec ("./tp1-code/outputfor10percent.csv","./jfreechart/src/main/java");
-        //lc3.makeCsv();
-
-        //egon ex1 = new egon("./tp1-code/outputfor1percent.csv", "./jfreechart/src/main/java");
-       // ex1.executeEgon(1);
-        //egon ex2 = new egon("./tp1-code/outputfor5percent.csv", "./jfreechart/src/main/java");
-        //ex2.executeEgon(5);
-        //egon ex3 = new egon("./tp1-code/outputfor10percent.csv", "./jfreechart/src/main/java");
-        //ex3.executeEgon(10);
         
         
     }

@@ -14,7 +14,7 @@ public class Jls {
 		this.path = path;
 		
 	}
-	//génère le fichier csv dans le dossier "output"
+	//génère le fichier csv dans le dossier entre par l'utilisateur
 	public void makeCsv(String path) {
 		File pathFile = new File(this.path);
 		getall(pathFile);

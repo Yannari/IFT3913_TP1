@@ -1,0 +1,13 @@
+En executant Egon pour les seuils 1,5 et 10% nous avons pu determiner les classes avec le plus fort taux de couplage et le nombre de lignes non vides le plus elevees
+suivant la definition de classe divine qui est un objet qui contrôle beaucoup trop d'autres objets dans le système et qui a grandi au-delà de toute logique, 
+pour devenir la classe qui fait tout. on peut comprendre qu'une classe divine represente en elle même un problème de modularité, en ceci que les classes avec un 
+couplage élevée sont difficiles à gérer,on ne peut pas déterminer le qui, le quoi et le comment d’une modification de données.
+Un couplage fort implique nécessairement une faible indépendance fonctionnelle :
+Le composant logiciel est difficilement réutilisable,
+Le composant logiciel est difficilement testable.
+Si deux tâches accèdent, par couplage fort, à une ressource commune (ressource critique) et qu'elles s'exécutent en exclusion mutuelle, alors si une des tâches 
+reste bloquée en section critique elle bloque automatiquement l'autre.
+De plus un grand nombre de lignes non vides dans un code est difficilement compréhension pour une tierce personne sachant que les travaux se font 
+particulièrement en groupe, donc Egon qui nous permet de détecter les classes divines, nous aide à prévenir les problèmes de modularités de notre code.
+Pour ameliorer Egon nous proposons de faire intervenir plus de métriques dans la recherche de classe divine afin d'améliorer la prévention d'erreur de modularité
+et de renforcer le concept de programmation orienté dans notre code.

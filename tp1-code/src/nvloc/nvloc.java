@@ -49,7 +49,11 @@ public class nvloc {
 		}
 		this.filecontains = lines;
 	}
-
+	/**
+	 * 
+	 * @param path
+	 * @return la taille de la liste correspondant au nombre de lignes du fichier entre
+	 */
 	public  int printLength(String path) {
 		
 		File file = new File(path);
