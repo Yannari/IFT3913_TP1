@@ -96,6 +96,7 @@ public class main {
 
             case "5":
             System.out.println("Thanks for using our program!");
+            sc.close();
             System.exit(0);
 
             default:
