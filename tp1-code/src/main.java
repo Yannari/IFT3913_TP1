@@ -40,9 +40,9 @@ public class main {
             case "1":
             
            
-            System.out.println("Choose the path to the folder which contains java files like this example: ./jfreechart/src/main/java ");
+            System.out.println("Choose the path to the folder which contains java  (ex : ./gr)");
             String  path = sc.nextLine();
-            System.out.println("Choose the path to the folder we will be the container of the csv: ./jfreechart/src/main/java");
+            System.out.println("Choose the path of the folder where you want to create the file (ex : .)");
             String  path2 = sc.nextLine();
             path2=path2+"/output.csv ";
             Jls jl1=new Jls(path);
@@ -53,7 +53,7 @@ public class main {
             
             case "2":
 
-            System.out.println("Choose the path to the java file  like this example: ./tp1-code/gr/spinellis/ckjm/MethodVisitor.java");
+            System.out.println("Choose the path to the java file (ex : ./file.java)");
             String  path5 = sc.nextLine();
             
             File file = new File(path5);
@@ -65,9 +65,9 @@ public class main {
 
             case "3":
 
-            System.out.println("Choose the path to the csv file  like this example: ./tp1-code/outputfor10percent.csv");
+            System.out.println("Choose the path to the csv file like this example: ./output.csv");
             String  path3 = sc.nextLine();
-            System.out.println("Choose the path to the folder which contains java files like this example: ./jfreechart/src/main/java ");
+            System.out.println("Choose the path to the folder which contains java files like this example: ./gr");
             String  path4 = sc.nextLine();
             lcsec lc1=new lcsec(path3,path4);
             lc1.makeCsv();
@@ -77,9 +77,9 @@ public class main {
 
             case "4":
 
-            System.out.println("Choose the path to the csv file  like this example: ./tp1-code/outputfor10percent.csv");
+            System.out.println("Choose the path to the csv file  (ex : ./output.csv)");
             String  path6 = sc.nextLine();
-            System.out.println("Choose the path to the folder which contains java files like this example: ./jfreechart/src/main/java ");
+            System.out.println("Choose the path to the folder which contains java files (ex : ./gr)");
             String  path7 = sc.nextLine();
             egon eg1=new egon(path6,path7);
             System.out.println("Enter the threshold a value between 1 and 99");
