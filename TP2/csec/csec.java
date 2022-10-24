@@ -1,13 +1,14 @@
+package csec;
 
 
 import java.io.*;
-import jls.Jls;
 import java.util.Arrays;
 
 public class csec {
 	private String csvPath;
 
-
+    float av=0;
+    int min=100000,max=0,median=0;
     public csec(String csvPath)
     {
         this.csvPath = csvPath;
@@ -23,9 +24,14 @@ public class csec {
 		try {
 	        BufferedWriter writer = new BufferedWriter(new FileWriter(this.csvPath));
 	        for(String fs : result) {
-                                            
+                
 				System.out.println(fs);
 			};
+            System.out.println("the average CSEC Value is:"+av);
+            System.out.println("the minimum CSEC Value is:"+min);
+            System.out.println("the maximum CSEC Value is:"+max);
+            System.out.println("the median CSEC Value is:"+max);
+            writer.close();
 
 		}
 		catch(Exception e) {
@@ -101,6 +107,7 @@ public class csec {
     {
         
         Integer csecScores[] = new Integer [csvString.length];
+
         Arrays.fill(csecScores, 0);
 
         for(int i=0;i<paths.length;i++)
@@ -119,10 +126,36 @@ public class csec {
             }
             
             csvString[i]=csvString[i]+","+" "+Integer.toString(csecScores[i]);
+            av+=csecScores[i];
+           
+            if(i>0)
+            {
+                if(csecScores[i]>=max)
+                {
+                    max=csecScores[i];
+                }
+
+                if(csecScores[i] <= min)
+                {
+
+                    min=csecScores[i];
+
+                }
+            }
+            
             
             
         }
-        
+        if(csecScores.length%2!=0)
+        {
+            median=(csecScores.length+1)/2;
+            median=csecScores[median];
+        }
+        else{
+            median=csecScores.length/2; 
+            median=csecScores[median];
+        }
+        av=av/csecScores.length;
         return csvString;
     }
     /**

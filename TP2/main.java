@@ -1,7 +1,10 @@
-import csec;
 
-public class main2 {
+import java.util.Scanner;
+import csec.csec;
+import Jls.Jls;
+public class main {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
         System.out.println("Choose the path to the folder which contains java  (ex : ./gr)");
         String  path = sc.nextLine();
         System.out.println("Choose the path of the folder where you want to create the file (ex : .)");
@@ -13,5 +16,4 @@ public class main2 {
         lc1.makeCsv();
         System.out.println("The csv has been written in the folder ");
     }
-    
 }
