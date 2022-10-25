@@ -13,3 +13,4 @@ Pour CSEC
 ```bash
 java -jar csec.jar folderpath(Ex:./jfreechart)
 ```
+Les résultats du calcul des metriques peuvent être trouvés dans le dossier DATA METRICS du repo
