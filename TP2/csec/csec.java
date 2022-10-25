@@ -3,6 +3,9 @@ package csec;
 
 import java.io.*;
 import java.util.Arrays;
+import java.util.Scanner;
+
+import Jls.Jls;
 
 public class csec {
 	private String csvPath;
@@ -212,6 +215,16 @@ public class csec {
         return false;
     }
 
- 
+public static void main(String[] args) {
+        //Scanner sc = new Scanner(System.in);
+        //System.out.println("Choose the path to the folder which contains java  (ex : ./gr)");
+        //String  path = sc.nextLine();
+        String  path2 = "./output.csv";
+
+        Jls jl1=new Jls(args[0]);
+        jl1.makeCsv(path2);
+        csec lc1=new csec(path2);
+        lc1.makeCsv();
+}
     
 }
