@@ -99,19 +99,7 @@ public class DC {
                 }
                 );
             }
-            try{
-                BufferedWriter writer = new BufferedWriter(new FileWriter("./output2.csv"));
-                for(String[] array : packageList) {
-                    System.out.println(Arrays.toString(array));
-                    writer.write(Arrays.toString(array));
-			        writer.newLine();
-                 }
-                
-            }
-            catch(Exception e)
-            {   
-                
-            }
+            
             
             
         }
