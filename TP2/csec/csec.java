@@ -25,7 +25,8 @@ public class csec {
 	        BufferedWriter writer = new BufferedWriter(new FileWriter(this.csvPath));
 	        for(String fs : result) {
                 
-				System.out.println(fs);
+				writer.write(fs);
+				writer.newLine();
 			};
             System.out.println("the average CSEC Value is:"+av);
             System.out.println("the minimum CSEC Value is:"+min);

@@ -4,6 +4,7 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 public class DC {
@@ -24,6 +25,8 @@ public class DC {
 
         // Si le dossier n'est pas vide...
         if(files != null) {
+           
+            
             int package_LOC = 0;
             int package_CLOC = 0;
 
@@ -96,6 +99,21 @@ public class DC {
                 }
                 );
             }
+            try{
+                BufferedWriter writer = new BufferedWriter(new FileWriter("./output2.csv"));
+                for(String[] array : packageList) {
+                    System.out.println(Arrays.toString(array));
+                    writer.write(Arrays.toString(array));
+			        writer.newLine();
+                 }
+                
+            }
+            catch(Exception e)
+            {   
+                
+            }
+            
+            
         }
 
     }
