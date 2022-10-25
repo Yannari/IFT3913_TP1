@@ -1,9 +1,9 @@
-TP2 IFT3913
-YANN-ARIEL ANANGA (20172516)
-Rapport -> Rapport.pdf
-Repo:https://github.com/Yannari/IFT3913_TP1.git
+TP2 IFT3913 <br/>
+YANN-ARIEL ANANGA (20172516)<br/>
+Rapport -> Rapport.pdf<br/>
+Repo:https://github.com/Yannari/IFT3913_TP1.git<br/>
 
-Pour l'execution du code, deux fichier jar (dc et csec) ont été crées et ajoutés dans le repo voici leur méthode d'exécution dans le cmd
+Pour l'execution du code, deux fichier jar (dc et csec) ont été crées et ajoutés dans le repo voici leur méthode d'exécution dans le cmd<br/>
 
 Pour DC 
 ```bash
