@@ -1,6 +1,8 @@
 package DC;
-import java.io.File;
+
+import java.io.*;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
@@ -13,7 +15,7 @@ public class DC {
      * @param packageList une liste où on entrepose les informations pour chaque paquet.
      * @throws FileNotFoundException si le path mène à un dossier qui n'existe pas.
      */
-    public void parseCode(String path, List<String[]> classList, List<String[]> packageList)
+    public void GetCommentDensity(String path, List<String[]> classList, List<String[]> packageList)
             throws FileNotFoundException {
 
         // On initialise le dossier ainsi que la liste des fichiers contenus
@@ -24,7 +26,6 @@ public class DC {
         if(files != null) {
             int package_LOC = 0;
             int package_CLOC = 0;
-            int package_WCP = 0;
 
             // Itère sur tous les fichiers
             for(File file : files) {
@@ -33,7 +34,7 @@ public class DC {
                 String extension = name.substring(name.lastIndexOf(".") + 1);
 
                 // Si le fichier est un dossier, on exécute parseCode récursivement
-                if(file.isDirectory()) parseCode(String.valueOf(file), classList, packageList);
+                if(file.isDirectory()) GetCommentDensity(String.valueOf(file), classList, packageList);
                 else if(extension.equals("java")) {
                     // On parse la classe et on ajoute les résultats
                     int[] results = parseClass(file);
@@ -42,7 +43,8 @@ public class DC {
                     int class_CLOC = results[1];
                     double class_DC = 1.0 * results[1] / results[0];
 
-                    // On parse à nouveau pour déterminer la complexité cyclomatique
+                     
+                
                
                    
 
@@ -69,7 +71,21 @@ public class DC {
 
             // On ajoute les informations du paquet au packageList
 
+            try {
+                 
+                   
+
+                System.out.println("the LOC Value is:"+package_LOC);
+                System.out.println("the CLOC Value Value is:"+package_CLOC);
+                System.out.println("the density Value is:"+package_DC);
+                
+
+            }
+            catch(Exception e) {
+                System.out.println(e);
+            }
             if (package_LOC != 0) {
+                
                 packageList.add(new String[] {
                     path,
                     String.valueOf(Paths.get(path).getFileName()),
