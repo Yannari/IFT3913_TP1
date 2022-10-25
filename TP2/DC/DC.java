@@ -4,6 +4,7 @@ import java.io.*;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
@@ -150,5 +151,32 @@ public class DC {
 
         // On retourne le LOC et le CLOC
         return new int[]{class_LOC, class_CLOC};
+    }
+    public static void main(String[] args) {
+        List<String[]> classList = new ArrayList<>();       // ArrayList pour les classes
+        List<String[]> packageList = new ArrayList<>();       // ArrayList pour les paquets
+        DC x= new DC();
+        try{
+            x.GetCommentDensity(args[0], classList, packageList);
+            try{
+                BufferedWriter writer = new BufferedWriter(new FileWriter("./output0.csv"));
+                for(String[] array : packageList) {
+                    
+                    writer.write(Arrays.toString(array));
+			        writer.newLine();
+                    
+                 }
+                 writer.close();
+                
+            }
+            catch(Exception e)
+            {   
+                
+            }
+        }
+        catch(Exception e)
+        {
+
+        }
     }
 }
